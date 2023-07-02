@@ -30,3 +30,11 @@ There is no password. The system allows the following features:
 By entering the patient ID, the system shall show the basic information for the patient.
 2. View today’s reservations:
 In this view, the system shall print all reservations with the patient ID attached to each reservation slot
+
+
+To Try this system, you can simply use any online C compiler or any compiler on your PC :
+ I used GCC compiler:
+ in command prompt, navigate to the directory where you saved the file.
+ Type in command prompt : gcc CLINIC.c -o out.exe 
+ and then : out.exe
+ That sholud start the clinic system.
