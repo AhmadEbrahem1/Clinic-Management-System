@@ -2,18 +2,14 @@
 #include<string.h>
 #include<stdio.h>
 #include"STD_Types.h"
-// structs
 #pragma pack(2)
-char ASLYY[20]="Not Determined Yet";
-char busy1[20]="2pm to 2:30pm";
-char busy2[20]="2:30pm to 3pm";
-char busy3[20]="3pm to 3:30pm";
-char busy4[20]="4pm to 4:30pm";
-char busy5[20]="4:30pm to 5pm";
-
-
-
-typedef struct s1{
+ char ASLYY[20]="Not Determined Yet";
+ char busy1[20]="2pm to 2:30pm";
+ char busy2[20]="2:30pm to 3pm";
+ char busy3[20]="3pm to 3:30pm";
+ char busy4[20]="4pm to 4:30pm";
+ char busy5[20]="4:30pm to 5pm";
+ typedef struct s1{
 	
 	 u8 name[50] ;
 	 u8 appoint[20];
@@ -27,7 +23,7 @@ typedef struct s1{
 	
 }record;
 
-typedef struct appointment{
+  typedef struct appointment{
 	u8 taken ;
 	u8 text[20];
 	u8 num;
@@ -319,10 +315,21 @@ appoint: %s \n",target->name,target->gender,target->age,target->appoint);
 }
 
 
-
-
-
-
+void view_today_reservation(record **head){
+	
+	record* patient =*head;
+	printf("Today : \n");
+	while(patient!=NULL){
+		
+		if(strcmp(patient->appoint,ASLYY)){
+			printf("patient ID: %s has an appoint from %s \n",patient->ID,patient->appoint);
+			
+		}
+		patient=patient->next;
+		
+	}
+	
+}
 
 
 
@@ -350,7 +357,7 @@ int main(){
 1-Admin Mode \n \
 2-User Mode     \n");
 
-clearInputBuffer();
+//clearInputBuffer();
 	scanf("%d",&m); 
    
   
@@ -525,7 +532,8 @@ goto start;
 				
 				
 				break;
-				case 2:
+				case 2: //2. View today’s reservations
+				view_today_reservation(&head);
 				break;
 				
 				default: printf("please enter a valid choice \n");
